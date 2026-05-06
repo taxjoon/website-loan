@@ -1,0 +1,277 @@
+/* (주)제이유 금융대부 */
+:root {
+    --color-primary: #1e3a5f;
+    --color-primary-dark: #142849;
+    --color-accent: #c8a872;
+    --color-text: #2c2c2c;
+    --color-text-muted: #6c757d;
+    --color-bg: #ffffff;
+    --color-bg-alt: #f5f6f8;
+    --color-bg-dark: #1a1d24;
+    --color-border: #e3e6ea;
+    --color-warning: #b54141;
+    --max-width: 1180px;
+    --radius: 4px;
+    --shadow-sm: 0 1px 2px rgba(0,0,0,0.04);
+    --shadow-md: 0 4px 12px rgba(0,0,0,0.08);
+    --transition: 0.2s ease;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; scroll-padding-top: 110px; }
+
+body {
+    font-family: "Pretendard", "Malgun Gothic", "맑은 고딕", -apple-system, BlinkMacSystemFont, sans-serif;
+    color: var(--color-text);
+    line-height: 1.65;
+    background: var(--color-bg);
+    -webkit-font-smoothing: antialiased;
+}
+
+a { color: inherit; text-decoration: none; }
+img { max-width: 100%; display: block; }
+ul { list-style: none; }
+
+.container { max-width: var(--max-width); margin: 0 auto; padding: 0 20px; }
+
+/* 상단 고지 바 */
+.topbar {
+    background: var(--color-primary-dark);
+    color: #d8dde6;
+    font-size: 12px;
+    padding: 8px 0;
+}
+.topbar .container { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px; }
+.topbar strong { color: #ffffff; }
+
+/* 헤더 */
+.header {
+    background: var(--color-bg);
+    border-bottom: 1px solid var(--color-border);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: var(--shadow-sm);
+}
+.header .container { display: flex; align-items: center; justify-content: space-between; padding-top: 18px; padding-bottom: 18px; }
+
+.logo a { display: flex; align-items: baseline; gap: 8px; color: var(--color-primary); font-weight: 700; font-size: 22px; letter-spacing: -0.02em; }
+.logo .reg { font-size: 12px; color: var(--color-text-muted); font-weight: 400; }
+
+.nav ul { display: flex; gap: 32px; }
+.nav a { font-weight: 500; color: var(--color-text); padding: 8px 0; transition: color var(--transition); position: relative; }
+.nav a:hover { color: var(--color-primary); }
+.nav a:hover::after { content: ""; position: absolute; left: 0; right: 0; bottom: -2px; height: 2px; background: var(--color-accent); }
+
+.nav-toggle { display: none; background: none; border: none; cursor: pointer; padding: 8px; }
+.nav-toggle span { display: block; width: 24px; height: 2px; background: var(--color-text); margin: 5px 0; }
+
+/* Hero */
+.hero {
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
+    color: #ffffff;
+    padding: 80px 0 90px;
+    position: relative;
+    overflow: hidden;
+}
+.hero::before {
+    content: "";
+    position: absolute;
+    right: -100px;
+    top: -100px;
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle, rgba(200,168,114,0.15) 0%, transparent 70%);
+}
+.hero .container { position: relative; }
+.hero .eyebrow { color: var(--color-accent); font-size: 14px; letter-spacing: 0.1em; margin-bottom: 16px; font-weight: 500; }
+.hero h1 { font-size: 42px; line-height: 1.3; margin-bottom: 20px; font-weight: 700; letter-spacing: -0.02em; }
+.hero p.lead { font-size: 17px; color: #d8dde6; max-width: 640px; margin-bottom: 36px; }
+.hero .cta { display: flex; gap: 12px; flex-wrap: wrap; }
+
+.btn {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 14px 28px;
+    border-radius: var(--radius);
+    font-weight: 600;
+    font-size: 15px;
+    transition: all var(--transition);
+    border: 1px solid transparent;
+    cursor: pointer;
+}
+.btn-primary { background: var(--color-accent); color: var(--color-primary-dark); }
+.btn-primary:hover { background: #d4b889; transform: translateY(-1px); }
+.btn-outline { background: transparent; color: #ffffff; border-color: rgba(255,255,255,0.3); }
+.btn-outline:hover { background: rgba(255,255,255,0.1); border-color: #ffffff; }
+
+/* 섹션 공통 */
+.section { padding: 80px 0; }
+.section.bg-alt { background: var(--color-bg-alt); }
+.section-header { text-align: center; margin-bottom: 50px; }
+.section-header .label { color: var(--color-accent); font-size: 13px; letter-spacing: 0.15em; font-weight: 600; margin-bottom: 12px; }
+.section-header h2 { font-size: 32px; color: var(--color-primary); letter-spacing: -0.02em; margin-bottom: 12px; }
+.section-header p { color: var(--color-text-muted); font-size: 15px; }
+
+/* 회사 정보 그리드 */
+.info-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
+    overflow: hidden;
+    background: #ffffff;
+}
+.info-grid .row { display: contents; }
+.info-grid dt, .info-grid dd { padding: 18px 24px; border-bottom: 1px solid var(--color-border); }
+.info-grid dt { background: var(--color-bg-alt); font-weight: 600; color: var(--color-primary); width: 220px; }
+.info-grid dd { background: #ffffff; }
+.info-grid dl { display: grid; grid-template-columns: 220px 1fr; }
+.info-grid dl:last-child dt, .info-grid dl:last-child dd { border-bottom: none; }
+
+/* 단순 정보 dl */
+.info-dl { display: grid; grid-template-columns: 220px 1fr; border-top: 1px solid var(--color-border); background: #ffffff; border-radius: var(--radius); overflow: hidden; border: 1px solid var(--color-border); }
+.info-dl dt, .info-dl dd { padding: 16px 24px; border-bottom: 1px solid var(--color-border); }
+.info-dl dt { background: var(--color-bg-alt); font-weight: 600; color: var(--color-primary); }
+.info-dl dt:last-of-type, .info-dl dd:last-of-type { border-bottom: none; }
+
+/* 상품 카드 */
+.product-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
+.product-card {
+    background: #ffffff;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
+    padding: 32px;
+    transition: transform var(--transition), box-shadow var(--transition);
+}
+.product-card:hover { transform: translateY(-2px); box-shadow: var(--shadow-md); }
+.product-card .icon { width: 48px; height: 48px; background: var(--color-bg-alt); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 20px; color: var(--color-primary); font-size: 22px; font-weight: 700; }
+.product-card h3 { font-size: 22px; color: var(--color-primary); margin-bottom: 14px; }
+.product-card p { color: var(--color-text-muted); margin-bottom: 16px; font-size: 14px; }
+.product-card ul { margin-top: 12px; }
+.product-card li { padding: 6px 0; padding-left: 18px; position: relative; font-size: 14px; }
+.product-card li::before { content: "·"; color: var(--color-accent); position: absolute; left: 6px; font-weight: 700; }
+
+/* 등록증 갤러리 */
+.license-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 28px;
+    margin-top: 40px;
+}
+.license-card {
+    background: #ffffff;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
+    padding: 24px;
+    text-align: center;
+}
+.license-card h4 { color: var(--color-primary); margin-bottom: 16px; font-size: 17px; }
+.license-card .image-wrap {
+    background: var(--color-bg-alt);
+    border: 1px dashed var(--color-border);
+    border-radius: var(--radius);
+    aspect-ratio: 3 / 4;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    margin-bottom: 12px;
+}
+.license-card .image-wrap img { max-height: 100%; width: auto; object-fit: contain; }
+.license-card .image-wrap .placeholder { color: var(--color-text-muted); font-size: 13px; padding: 20px; }
+.license-card .caption { font-size: 13px; color: var(--color-text-muted); }
+
+/* 법적 고지 박스 */
+.legal-box {
+    background: #fff8f0;
+    border-left: 4px solid var(--color-warning);
+    padding: 24px 28px;
+    border-radius: var(--radius);
+    margin-top: 30px;
+}
+.legal-box h3 { color: var(--color-warning); font-size: 16px; margin-bottom: 12px; }
+.legal-box p { font-size: 14px; line-height: 1.7; }
+.legal-box p + p { margin-top: 8px; }
+
+/* 공지사항 */
+.notice-list { background: #ffffff; border: 1px solid var(--color-border); border-radius: var(--radius); overflow: hidden; }
+.notice-item { display: grid; grid-template-columns: 1fr auto; padding: 20px 24px; border-bottom: 1px solid var(--color-border); align-items: center; }
+.notice-item:last-child { border-bottom: none; }
+.notice-item h4 { font-size: 15px; color: var(--color-primary); margin-bottom: 4px; }
+.notice-item p { font-size: 13px; color: var(--color-text-muted); }
+.notice-item .date { font-size: 12px; color: var(--color-text-muted); }
+
+/* 연락처 */
+.contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; }
+.contact-card {
+    background: #ffffff;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
+    padding: 32px;
+}
+.contact-card h3 { color: var(--color-primary); font-size: 18px; margin-bottom: 16px; }
+.contact-card .big-tel {
+    font-size: 30px;
+    color: var(--color-primary);
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    margin: 12px 0 16px;
+}
+.contact-card p { color: var(--color-text-muted); font-size: 14px; line-height: 1.7; }
+
+/* 푸터 */
+.footer {
+    background: var(--color-bg-dark);
+    color: #b8bdc7;
+    padding: 50px 0 30px;
+    font-size: 13px;
+    line-height: 1.7;
+}
+.footer a:hover { color: #ffffff; }
+.footer .top { display: grid; grid-template-columns: 2fr 1fr; gap: 40px; padding-bottom: 30px; border-bottom: 1px solid #2a2e38; }
+.footer .top h4 { color: #ffffff; font-size: 14px; margin-bottom: 12px; letter-spacing: 0.05em; }
+.footer .doc-links { display: grid; grid-template-columns: repeat(2, 1fr); gap: 6px 16px; }
+.footer .doc-links a { font-size: 13px; padding: 4px 0; }
+.footer .legal-text { font-size: 12px; color: #8a8f9b; padding-top: 24px; }
+.footer .legal-text strong { color: #d8dde6; }
+.footer .warn { color: #d4a574; font-weight: 500; padding: 12px 0; }
+.footer .copy { color: #6a6f7b; font-size: 11px; margin-top: 16px; }
+
+/* 약관 페이지 (docs) */
+.doc-page { padding: 60px 0 80px; }
+.doc-page h1 { color: var(--color-primary); font-size: 28px; margin-bottom: 30px; padding-bottom: 16px; border-bottom: 2px solid var(--color-primary); }
+.doc-page h2 { color: var(--color-primary); font-size: 19px; margin: 36px 0 16px; padding-left: 12px; border-left: 3px solid var(--color-accent); }
+.doc-page h3 { font-size: 16px; margin: 24px 0 10px; color: var(--color-text); font-weight: 600; }
+.doc-page p { margin-bottom: 12px; font-size: 14px; line-height: 1.8; }
+.doc-page ul, .doc-page ol { margin: 12px 0 16px 24px; }
+.doc-page li { font-size: 14px; line-height: 1.8; margin-bottom: 6px; }
+.doc-page table { width: 100%; border-collapse: collapse; margin: 16px 0 24px; font-size: 13px; }
+.doc-page th, .doc-page td { border: 1px solid var(--color-border); padding: 10px 12px; text-align: left; vertical-align: top; }
+.doc-page th { background: var(--color-bg-alt); color: var(--color-primary); font-weight: 600; }
+.doc-page .back-home { display: inline-block; margin-top: 40px; color: var(--color-primary); font-weight: 500; padding: 10px 20px; border: 1px solid var(--color-primary); border-radius: var(--radius); transition: all var(--transition); }
+.doc-page .back-home:hover { background: var(--color-primary); color: #ffffff; }
+.doc-page .meta { font-size: 13px; color: var(--color-text-muted); margin-top: 40px; text-align: right; }
+
+/* 반응형 */
+@media (max-width: 860px) {
+    .nav { display: none; }
+    .nav.open { display: block; position: absolute; top: 100%; left: 0; right: 0; background: #ffffff; border-bottom: 1px solid var(--color-border); padding: 16px 20px; }
+    .nav.open ul { flex-direction: column; gap: 16px; }
+    .nav-toggle { display: block; }
+    .hero h1 { font-size: 30px; }
+    .hero { padding: 60px 0 70px; }
+    .section { padding: 60px 0; }
+    .section-header h2 { font-size: 26px; }
+    .product-grid, .contact-grid, .license-grid { grid-template-columns: 1fr; }
+    .info-dl { grid-template-columns: 1fr; }
+    .info-dl dt { border-bottom: none; padding-bottom: 8px; }
+    .info-dl dd { padding-top: 0; }
+    .footer .top { grid-template-columns: 1fr; gap: 24px; }
+    .topbar { font-size: 11px; }
+    .topbar .container { gap: 4px; }
+    .doc-page h1 { font-size: 22px; }
+    .doc-page table { font-size: 12px; }
+    .doc-page th, .doc-page td { padding: 6px 8px; }
+}
