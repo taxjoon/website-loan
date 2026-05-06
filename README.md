@@ -12,19 +12,18 @@
 
 ```
 .
-├── public/                정적 사이트 루트 (배포 대상)
-│   ├── index.html         메인 페이지
-│   ├── css/style.css      스타일
-│   ├── js/main.js         모바일 메뉴 토글
-│   ├── images/            등록증 이미지
-│   └── docs/              약관 7종
-│       ├── service-terms.html        서비스 이용약관
-│       ├── privacy.html              개인정보처리방침
-│       ├── no-spam.html              이메일무단수집거부
-│       ├── credit-info.html          신용정보활용체제
-│       ├── illegal-collection.html   불법채권추심 대응요령
-│       ├── collection-process.html   채권추심업무 처리절차
-│       └── expired-debt.html         소멸시효완성 채권 안내
+├── index.html             메인 페이지
+├── css/style.css          스타일
+├── js/main.js             모바일 메뉴 토글
+├── images/                등록증 이미지
+├── docs/                  약관 7종
+│   ├── service-terms.html        서비스 이용약관
+│   ├── privacy.html              개인정보처리방침
+│   ├── no-spam.html              이메일무단수집거부
+│   ├── credit-info.html          신용정보활용체제
+│   ├── illegal-collection.html   불법채권추심 대응요령
+│   ├── collection-process.html   채권추심업무 처리절차
+│   └── expired-debt.html         소멸시효완성 채권 안내
 ├── docker-compose.yml     로컬 nginx 컨테이너 (포트 8081)
 ├── nginx.conf
 └── .github/workflows/     GitHub Pages 자동 배포
@@ -45,7 +44,7 @@ docker compose down
 
 ## GitHub Pages 배포
 
-`main` 브랜치에 push하면 `.github/workflows/pages.yml`이 자동으로 `public/` 폴더를 GitHub Pages에 배포합니다.
+`main` 브랜치에 push하면 `.github/workflows/pages.yml`이 자동으로 사이트 전체를 GitHub Pages에 배포합니다.
 
 ### 최초 설정
 
