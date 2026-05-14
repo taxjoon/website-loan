@@ -57,7 +57,7 @@ ul { list-style: none; }
 .header .container { display: flex; align-items: center; justify-content: space-between; padding-top: 18px; padding-bottom: 18px; }
 
 .logo a { display: flex; flex-wrap: wrap; align-items: baseline; gap: 2px 8px; color: var(--color-primary); font-weight: 700; font-size: 22px; letter-spacing: -0.02em; }
-.logo .reg { font-size: 11px; color: var(--color-text-muted); font-weight: 400; }
+.logo .reg { font-size: 22px; color: var(--color-text-muted); font-weight: 400; }
 
 .nav ul { display: flex; gap: 32px; }
 .nav a { font-weight: 500; color: var(--color-text); padding: 8px 0; transition: color var(--transition); position: relative; }
